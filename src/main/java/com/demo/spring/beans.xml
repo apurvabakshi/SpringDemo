@@ -1,0 +1,34 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+<beans xmlns = "http://www.springframework.org/schema/beans"
+   xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:aop="http://www.springframework.org/schema/aop"
+   xsi:schemaLocation = "http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+
+<aop:aspectj-autoproxy />
+
+   <bean id = "helloWorld" class = "com.demo.spring.App">
+      <property name = "message" value = "Hello World!"/>
+   </bean>
+
+	<bean id="useraccount" class="com.demo.spring.UserAccount">
+		<property name="cardNumber" value="1111" />
+		<property name="acc">
+			<map>
+				<entry key="123" value="10000" />
+				<entry key="456" value="20000" />
+			</map>
+		</property>
+		<property name="userPin" value="0000" />
+	</bean>
+	
+	 <bean id = "bankoperations" class = "com.demo.spring.BankOperations">
+      </bean>
+	
+	<!-- Aspect bean -->
+	 <bean id="logAspect" class="com.demo.spring.LoggingAspect" />
+	 
+</beans>
